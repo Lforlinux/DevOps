@@ -1,0 +1,15 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: sec-pod1
+  labels:
+    app: myapp
+spec:
+  containers:
+    - name: cont1
+      image: tomcat
+      ports:
+        - containerPort: 8080
+      envFrom:
+        - secretRef:
+            name: cka-secret

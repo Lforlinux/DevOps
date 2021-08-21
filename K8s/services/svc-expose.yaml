@@ -1,0 +1,1 @@
+#kubectl expose deployment mydeploy --type NodePort --name np-svc --port 80 --target-port 3000 --dry-run=client -o yaml 

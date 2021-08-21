@@ -1,0 +1,8 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: con-map-cka
+data:
+   mydatabase: proddb
+   mydbport: "3128"
+   dbconpool: "22"

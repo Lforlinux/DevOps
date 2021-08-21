@@ -1,0 +1,13 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: my-pv
+  labels:
+    type: local  ## this randon and your choice any key: value
+spec:
+  hostPath:
+    path: /my-pv-data-onvm
+  capacity:
+    storage: 2Gi
+  accessModes:
+   - ReadWriteOnce  # ReadOnlyMany / ReadWriteMany -- the number of nodes that can write the data to volume
