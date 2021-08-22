@@ -22,7 +22,7 @@ pipeline {
         }
       }
     }
-    stage('Deploy Image') {
+    stage('Push the Image to DockerHub') {
       steps{
         script {
           docker.withRegistry( '', registryCredential ) {
@@ -52,7 +52,7 @@ pipeline {
       }
     }
     
-    	stage('Run Docker Image in Lab') {
+    	stage('Deploy the image to Production') {
       steps{
         script {
 		        sh "docker run -d -p 8000:8000 ${dockerImage.imageName()}"
