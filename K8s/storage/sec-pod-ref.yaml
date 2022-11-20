@@ -1,0 +1,23 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: mypod1
+  labels:
+    app: myapp
+spec:
+  containers:
+    - name: cont1
+      image: tomcat
+      ports:
+        - containerPort: 8080
+      env:
+        - name: dbuser
+          valueFrom:
+            secretKeyRef:
+               name: cka-secret
+               key: username
+        - name: dbpwd
+          valueFrom:
+            secretKeyRef:
+               name: cka-secret
+               key: password
