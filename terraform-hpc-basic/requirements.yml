@@ -1,0 +1,7 @@
+# Ansible Roles from Galaxy 
+- src: geerlingguy.ntp
+- src: geerlingguy.mysql
+
+# Github Roles 
+- src: https://github.com/stackhpc/ansible-role-beegfs
+- src: https://github.com/Shadowphax/ansible-role-slurm.git

@@ -1,0 +1,7 @@
+openrc
+.terraform
+terraform.tfstate*
+*.out
+inventory/slurm-inventory
+*.retry
+ansible/group_vars
