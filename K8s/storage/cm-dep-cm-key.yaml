@@ -1,0 +1,26 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: cm-refkey-dep
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      type: cmapp2
+  template:
+    metadata:
+      labels:
+        type: cmapp2
+    spec:
+      containers:
+       - name: cont1
+         image: tomcat
+         ports:
+           - name: http
+             containerPort: 8080
+         env:
+           - name: mydbconpool
+             valueFrom:
+               configMapKeyRef:
+                 name: con-map-cka
+                 key: dbconpool

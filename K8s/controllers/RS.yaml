@@ -1,0 +1,25 @@
+kind: ReplicaSet 
+apiVersion: apps/v1
+metadata:
+  name: rs1
+   labels:
+      role: app    not mandatory 
+spec:
+  replicas: 4
+  selector:  # way to control only the 4 pods which has role:app label. 
+    matchLabels: 
+      role: app
+  template:   # pod template which need to be created, which include always about the pod metadata & spec
+    metadata:
+      #name: test
+      labels: 
+        role: app
+    spec:
+      containers:
+        - name: cont1
+          image: nginx
+          ports:
+            - name: http
+              containerPort: 80
+            - name: https
+              containerPort: 443 

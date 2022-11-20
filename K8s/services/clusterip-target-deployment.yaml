@@ -1,0 +1,21 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: clusterip-taget-deployement
+  # labels:   not mandatory 
+spec:
+  selector:
+    matchLabels:
+      app: clusterip-taget-deployement
+  replicas: 3
+  template:   # pod template which need to be created, which include always about the pod metadata & spec
+    metadata:
+      #name: test
+      labels:
+        app: clusterip-taget-deployement
+    spec:
+      containers:
+      - name: clusterip-taget-deployement
+        image: lforlinux/http-server:v1
+        ports:
+        - containerPort: 80
