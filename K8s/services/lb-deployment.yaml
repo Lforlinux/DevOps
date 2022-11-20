@@ -1,0 +1,21 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: lb-deployement
+  # labels:   not mandatory 
+spec:
+  selector:
+    matchLabels:
+      app: lb-deployement
+  replicas: 3
+  template:   # pod template which need to be created, which include always about the pod metadata & spec
+    metadata:
+      #name: test
+      labels:
+        app: lb-deployement
+    spec:
+      containers:
+      - name: lb-deployement
+        image: lforlinux/http-server:v1
+        ports:
+        - containerPort: 80

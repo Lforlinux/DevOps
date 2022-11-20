@@ -1,0 +1,23 @@
+kind: DaemonSet 
+apiVersion: apps/v1
+metadata:
+  name: ds1
+  # labels:   not mandatory 
+spec:
+  selector: 
+    matchLabels: 
+      type: my-DS
+  template:   # pod template which need to be created, which include always about the pod metadata & spec
+    metadata:
+      #name: test
+      labels: 
+        type: my-DS
+    spec:
+      containers:
+        - name: cont1
+          image: nginx
+          ports:
+            - name: http
+              containerPort: 80
+            - name: https
+              containerPort: 443 

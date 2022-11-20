@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: fleetman-webapp
+spec:
+  selector:
+    app: webapp
+  ports:
+  - name: http
+    port: 80
+  type: LoadBalancer
